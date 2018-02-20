@@ -11,6 +11,10 @@ pipeline {
      }
 
 stages{
+        stage ('Pre Build'){
+            steps {
+                sh 'mvn --version'
+            }
         stage ('Build'){
             steps {
                 sh 'mvn --version'
