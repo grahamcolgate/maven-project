@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'
+    }
+
     parameters {
          string (name: 'tomcat_dev', defaultValue: '35.177.197.103', description: 'Staging Server')
          string (name: 'tomcat_prod', defaultValue: '35.178.104.123', description: 'Production Server')
@@ -10,12 +14,7 @@ pipeline {
          pollSCM ('* * * * *')
      }
 
-stages{
-        stage ('Pre Build'){
-            steps {
-                sh 'mvn --version'
-            }
-        }
+    stages{
         stage ('Build'){
             steps {
                 sh 'mvn clean package'
