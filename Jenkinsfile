@@ -15,6 +15,7 @@ stages{
             steps {
                 sh 'mvn --version'
             }
+        }
         stage ('Build'){
             steps {
                 sh 'mvn clean package'
